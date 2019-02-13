@@ -13,7 +13,7 @@ Additional upgrade information can be found at the following URL: https://spaces
 # Supported tags
 
 -	latest
--   patch specific tags* (i.e. 2.3.0-a97-u41-w11-p16)
+-   patch specific tags* (i.e. 2.4.0-a26-u11-w2-p2-20190211)
 
 \* Patch builds are routinely produced, but not necessarily for each patch release. The following monikers are used to construct the tag name:
  
