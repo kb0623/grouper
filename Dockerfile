@@ -7,8 +7,7 @@ RUN yum update -y \
 ARG GROUPER_CONTAINER_VERSION
 
 ENV GROUPER_VERSION=2.4.0 \
-     JAVA_HOME=/usr/lib/jvm/zulu-8/ \
-     GROUPER_CONTAINER_VERSION=$GROUPER_CONTAINER_VERSION
+    GROUPER_CONTAINER_VERSION=$GROUPER_CONTAINER_VERSION
 
 # Install Corretto Java JDK
 #Corretto download page: https://docs.aws.amazon.com/corretto/latest/corretto-8-ug/downloads-list.html
