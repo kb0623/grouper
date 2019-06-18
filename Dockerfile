@@ -10,10 +10,22 @@ ENV GROUPER_VERSION=2.4.0 \
      JAVA_HOME=/usr/lib/jvm/zulu-8/ \
      GROUPER_CONTAINER_VERSION=$GROUPER_CONTAINER_VERSION
 
+# Install Corretto Java JDK
+#Corretto download page: https://docs.aws.amazon.com/corretto/latest/corretto-8-ug/downloads-list.html
+ARG CORRETTO_RPM=java-1.8.0-amazon-corretto-devel-1.8.0_212.b04-2.x86_64.rpm
+ARG CORRETTO_URL_BASE=https://d3pxv6yz143wms.cloudfront.net/8.212.04.2
+COPY container_files/java-corretto/corretto-signing-key.pub .
+RUN curl -O $CORRETTO_URL_BASE/$CORRETTO_RPM \
+    && rpm --import corretto-signing-key.pub \
+    && rpm -K $CORRETTO_RPM \
+    && rpm -i $CORRETTO_RPM \
+    && rm -r corretto-signing-key.pub $CORRETTO_RPM
+ENV JAVA_HOME=/usr/lib/jvm/java-1.8.0-amazon-corretto
+
 # use Zulu package
-RUN rpm --import http://repos.azulsystems.com/RPM-GPG-KEY-azulsystems \
-       && curl -o /etc/yum.repos.d/zulu.repo http://repos.azulsystems.com/rhel/zulu.repo \
-       && yum -y install zulu-8 
+# RUN rpm --import http://repos.azulsystems.com/RPM-GPG-KEY-azulsystems \
+#       && curl -o /etc/yum.repos.d/zulu.repo http://repos.azulsystems.com/rhel/zulu.repo \
+#       && yum -y install zulu-8 
 
 #RUN java_version=8.0.172; \
 #    zulu_version=8.30.0.1; \
