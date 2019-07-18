@@ -11,8 +11,8 @@ ENV GROUPER_VERSION=2.4.0 \
 
 # Install Corretto Java JDK
 #Corretto download page: https://docs.aws.amazon.com/corretto/latest/corretto-8-ug/downloads-list.html
-ARG CORRETTO_RPM=java-1.8.0-amazon-corretto-devel-1.8.0_212.b04-2.x86_64.rpm
-ARG CORRETTO_URL_BASE=https://d3pxv6yz143wms.cloudfront.net/8.212.04.2
+ARG CORRETTO_RPM=java-1.8.0-amazon-corretto-devel-1.8.0_222.b10-1.x86_64.rpm
+ARG CORRETTO_URL_BASE=https://d3pxv6yz143wms.cloudfront.net/8.222.10.1
 COPY container_files/java-corretto/corretto-signing-key.pub .
 RUN curl -O $CORRETTO_URL_BASE/$CORRETTO_RPM \
     && rpm --import corretto-signing-key.pub \
@@ -110,7 +110,7 @@ LABEL author="tier-packaging@internet2.edu <tier-packaging@internet2.edu>" \
       
 ARG GROUPER_CONTAINER_VERSION
 
-ENV ENV JAVA_HOME=/usr/lib/jvm/java-1.8.0-amazon-corretto \
+ENV JAVA_HOME=/usr/lib/jvm/java-1.8.0-amazon-corretto \
     PATH=$PATH:$JAVA_HOME/bin \
     GROUPER_HOME=/opt/grouper/grouper.apiBinary \
     GROUPER_CONTAINER_VERSION=$GROUPER_CONTAINER_VERSION
