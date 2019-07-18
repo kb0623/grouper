@@ -110,8 +110,9 @@ LABEL author="tier-packaging@internet2.edu <tier-packaging@internet2.edu>" \
       
 ARG GROUPER_CONTAINER_VERSION
 
-ENV JAVA_HOME=/usr/lib/jvm/java-1.8.0-amazon-corretto \
-    PATH=$PATH:$JAVA_HOME/bin \
+ENV JAVA_HOME=/usr/lib/jvm/java-1.8.0-amazon-corretto
+
+ENV PATH=$PATH:$JAVA_HOME/bin \
     GROUPER_HOME=/opt/grouper/grouper.apiBinary \
     GROUPER_CONTAINER_VERSION=$GROUPER_CONTAINER_VERSION
 
