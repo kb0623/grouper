@@ -39,6 +39,9 @@ RUN echo 'Downloading Grouper Installer...' \
     && wget -q -O /opt/grouper/$GROUPER_VERSION/grouperInstaller.jar http://software.internet2.edu/grouper/release/$GROUPER_VERSION/grouperInstaller.jar
 
 COPY container_files/grouper.installer.properties /opt/grouper/$GROUPER_VERSION
+# Temporary morphString file used for building, not used in production
+COPY container_files/morphString.properties /opt/grouper/$GROUPER_VERSION
+
 
 RUN echo 'Installing Grouper'; \
     PATH=$PATH:$JAVA_HOME/bin; \

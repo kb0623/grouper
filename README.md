@@ -1,6 +1,7 @@
 [![Build Status](https://jenkins.testbed.tier.internet2.edu/buildStatus/icon?job=docker/grouper/master)](https://jenkins.testbed.tier.internet2.edu/buildStatus/icon?job=docker/grouper/master)
 
 
+
 This repository contains the source code used to create the InCommon Trusted Access Platform Grouper container. This standalone container is pushed to Dockerhub, various tags are available at the following URL: https://hub.docker.com/r/tier/grouper/tags. This repo can also be cloned and the container built locally. 
 
 The test-compose directory contains an example Grouper environment that starts up the various Grouper components. This example demonstrates how one might go about customizing and deploying their Grouper containers, using the TIER Grouper image as a base image. If evaluating Grouper, this is a good place to start. 
