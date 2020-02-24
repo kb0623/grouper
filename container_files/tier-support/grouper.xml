@@ -1,4 +1,4 @@
-<Context docBase="/opt/grouper/grouperWebapp/" path="/grouperWebapp" reloadable="false">
+<Context docBase="/opt/grouper/grouperWebapp/" path="/grouper" reloadable="false">
     <!-- Allow our symlinks to work-->
     <Resources allowLinking="true" />
 </Context>

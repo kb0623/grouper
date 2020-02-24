@@ -60,6 +60,8 @@ services:
      - source: sp-key.pem
        target: shib_sp-key.pem
      - source: host-key.pem
+     - source: morphString.properties
+       target: grouper_morphString.properties
     volumes:
      - type: bind
        source: ./configs-and-secrets/grouper/grouper.properties
@@ -110,6 +112,8 @@ services:
      - source: sp-key.pem
        target: shib_sp-key.pem
      - source: host-key.pem
+     - source: morphString.properties
+       target: grouper_morphString.properties
     volumes:
      - type: bind
        source: ./configs-and-secrets/grouper/grouper.properties
@@ -179,6 +183,8 @@ services:
        target: grouper_grouper-loader.properties
      - source: subject.properties
        target: grouper_subject.properties
+     - source: morphString.properties
+       target: grouper_morphString.properties
     volumes:
      - type: bind
        source: ./configs-and-secrets/grouper/grouper.properties
