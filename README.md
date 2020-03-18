@@ -6,6 +6,8 @@ This repository contains the source code used to create the InCommon Trusted Acc
 
 The test-compose directory contains an example Grouper environment that starts up the various Grouper components. This example demonstrates how one might go about customizing and deploying their Grouper containers, using the TIER Grouper image as a base image. If evaluating Grouper, this is a good place to start. 
 
+If new to Docker, or have an existing configuration that you want to test with the Grouper container, review the following document: https://spaces.at.internet2.edu/display/Grouper/Install+the+Grouper+2.4+container+with+maturity+level+0.
+
 
 # Upgrading from 2.3 to 2.4
 
