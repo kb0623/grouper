@@ -10,7 +10,6 @@ load ../common
     cd test-compose && ./compose.sh && docker-compose down
 }
 
-
-#@test "070 There are no known security vulnerabilities" {
-#    ./tests/clairscan.sh ${maintainer}/${imagename}:latest
-#}
+@test "070 There are no known security vulnerabilities" {
+    ./tests/clairscan.sh ${maintainer}/${imagename}:latest
+}
