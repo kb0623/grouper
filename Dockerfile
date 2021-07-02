@@ -1,4 +1,4 @@
-FROM centos:centos7 as installing
+FROM rockylinux:8 as installing
 RUN yum update -y \
     && yum install -y wget tar unzip dos2unix patch \
     && yum clean all
@@ -31,7 +31,7 @@ RUN echo 'Installing Grouper'; \
     PATH=$PATH:$JAVA_HOME/bin; \
     cd /opt/grouper/$GROUPER_VERSION/ \
     && $JAVA_HOME/bin/java -cp :grouperInstaller.jar edu.internet2.middleware.grouperInstaller.GrouperInstaller
-FROM centos:centos7 as cleanup
+FROM rockylinux:8 as cleanup
 ENV GROUPER_VERSION=2.5.52 \
     TOMEE_VERSION=7.0.0
 RUN mkdir -p /opt/grouper/grouperWebapp/
