@@ -6,7 +6,7 @@ RUN yum update -y \
 RUN yum install -y wget tar unzip dos2unix patch
     
 ARG GROUPER_CONTAINER_VERSION
-ENV GROUPER_VERSION=2.5.52 \
+ENV GROUPER_VERSION=2.5.54 \
      GROUPER_CONTAINER_VERSION=$GROUPER_CONTAINER_VERSION
 
 # Install Corretto Java JDK
@@ -32,7 +32,7 @@ RUN echo 'Installing Grouper'; \
     cd /opt/grouper/$GROUPER_VERSION/ \
     && $JAVA_HOME/bin/java -cp :grouperInstaller.jar edu.internet2.middleware.grouperInstaller.GrouperInstaller
 FROM rockylinux/rockylinux:8 as cleanup
-ENV GROUPER_VERSION=2.5.52 \
+ENV GROUPER_VERSION=2.5.54 \
     TOMEE_VERSION=7.0.0
 RUN mkdir -p /opt/grouper/grouperWebapp/
 RUN mkdir -p /opt/tomee/
@@ -51,7 +51,7 @@ RUN cd /opt/tomee/; \
 COPY container_files/api/* /opt/grouper/grouperWebapp/WEB-INF/classes/
 COPY container_files/tomee/ /opt/tomee/
 
-FROM tier/shibboleth_sp:3.1.0_04172020
+FROM tier/shibboleth_sp:3.2.3_08092021_rocky
 LABEL author="tier-packaging@internet2.edu <tier-packaging@internet2.edu>" \
       Vendor="TIER" \
       ImageType="Grouper" \
