@@ -66,7 +66,7 @@ ENV PATH=$PATH:$JAVA_HOME/bin \
 RUN ln -sf /usr/share/zoneinfo/UTC /etc/localtime
 RUN yum update -y \
     && yum install -y cronie logrotate python3-pip rsync sudo patch supervisor \
-    && pip install --upgrade pip \
+    && pip3 install --upgrade pip \
     && yum clean -y all
 #COPY --from=installing $JAVA_HOME $JAVA_HOME
 # do this again so its in rpm history
