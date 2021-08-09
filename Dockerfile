@@ -65,7 +65,7 @@ ENV PATH=$PATH:$JAVA_HOME/bin \
     GROUPER_CONTAINER_VERSION=$GROUPER_CONTAINER_VERSION
 RUN ln -sf /usr/share/zoneinfo/UTC /etc/localtime
 RUN yum update -y \
-    && yum install -y cron logrotate python-pip rsync sudo patch supervisor \
+    && yum install -y cronie logrotate python-pip rsync sudo patch supervisor \
     && pip install --upgrade pip \
     && yum clean -y all
 #COPY --from=installing $JAVA_HOME $JAVA_HOME
@@ -101,6 +101,9 @@ RUN touch /opt/grouper/grouperEnv.sh \
     && mkdir -p /opt/tomee/work/Catalina/localhost/ \
     && chown -R tomcat:root  /opt/grouper/ /etc/httpd/conf/ /home/tomcat/ /opt/tomee/ /usr/local/bin /etc/httpd/conf.d/ /opt/hsqldb/ /opt/tier-support/ \
     && chmod -R g+rwx /opt/grouper/ /etc/httpd/conf/ /home/tomcat/ /opt/tomee/ /usr/local/bin /etc/httpd/conf.d/ /opt/hsqldb/ /opt/tier-support/
+
+#might need to add this - chubing 8/9/2021
+# RUN /usr/libexec/httpd-ssl-gencerts && chmod 644 /etc/pki/tls/private/localhost.key
 
 # keep backup of files
 RUN mkdir -p /opt/tier-support/originalFiles ; \
