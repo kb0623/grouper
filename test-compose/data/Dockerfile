@@ -6,8 +6,9 @@ COPY container_files/seed-data/ /seed-data/
 COPY container_files/conf/ /opt/grouper/grouperWebapp/WEB-INF/classes/
 
 RUN yum install -y epel-release \
-    && yum update -y \
-    && yum install -y 389-ds-base 389-admin 389-adminutil mariadb-server mariadb \
+    && yum update -y \    
+    && yum install -y 389-ds-base mariadb-server mariadb \
+#    && yum install -y 389-ds-base 389-admin 389-adminutil mariadb-server mariadb \
     && yum clean all \
     && rm -rf /var/cache/yum
 
